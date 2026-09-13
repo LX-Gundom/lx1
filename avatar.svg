@@ -1,0 +1,16 @@
+<!-- 本地头像：简约渐变色 + 姓名首字，不依赖外部网络资源 -->
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <!-- 头像渐变背景：蓝紫渐变色 -->
+    <linearGradient id="avatarGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6c8cff" />
+      <stop offset="100%" stop-color="#8b5cf6" />
+    </linearGradient>
+  </defs>
+  <!-- 方形背景（最终会被 CSS 的 border-radius: 50% 裁剪成圆形） -->
+  <rect width="200" height="200" fill="url(#avatarGrad)" />
+  <!-- 姓名首字 “张”，白色居中显示 -->
+  <text x="100" y="128" font-size="82" text-anchor="middle"
+        font-family="Microsoft YaHei, PingFang SC, sans-serif"
+        fill="#ffffff">张</text>
+</svg>

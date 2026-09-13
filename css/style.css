@@ -1,0 +1,112 @@
+/* ==========================================================
+   个人名片 — 样式文件
+   说明：本文件与 index.html 分离书写，负责页面全部外观样式
+   ========================================================== */
+
+/* ---------- 1. 全局基础样式 ---------- */
+
+/* 清除浏览器默认外边距 / 内边距，并让宽高包含内边距与边框 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 页面主体：
+   - 使用 Flex 布局实现卡片水平 + 垂直双重居中
+   - min-height 保证小屏下卡片也能在屏幕正中间 */
+body {
+  display: flex;               /* 弹性布局容器 */
+  justify-content: center;     /* 水平居中 */
+  align-items: center;         /* 垂直居中 */
+  min-height: 100vh;           /* 至少占满一屏高度 */
+  background-color: #f2f5f8;   /* 页面浅灰蓝背景，衬托白色卡片 */
+  color: #2c3e50;              /* 正文文字颜色 */
+  font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ---------- 2. 名片卡片样式 ---------- */
+
+.card {
+  width: 360px;                 /* 卡片固定宽度 */
+  padding: 42px 34px;           /* 卡片内部留白，内容不贴边 */
+  background-color: #ffffff;    /* 卡片背景：纯白 */
+  border-radius: 12px;          /* ★ 12px 圆角 */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12); /* ★ 柔和阴影（偏移 6px、半透明 0.12） */
+
+  /* ★ 过渡动画：鼠标悬停时，位移与阴影在 0.3 秒内平滑变化 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ---------- 3. 鼠标悬停：卡片轻微上浮 ---------- */
+
+.card:hover {
+  transform: translateY(-8px);                          /* 卡片向上平移 8px，产生“上浮”效果 */
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.20);          /* 阴影加深扩大，增强抬升的立体感 */
+}
+
+/* ---------- 4. 头像样式 ---------- */
+
+.avatar {
+  display: block;               /* 块级元素，方便 margin 居中 */
+  width: 96px;                  /* 头像宽 */
+  height: 96px;                 /* 头像高：与宽相同，保证正圆 */
+  margin: 0 auto 18px;          /* 水平居中，并与下方姓名保持 18px 间距 */
+  border-radius: 50%;           /* ★ 圆形裁剪（50% 即正圆） */
+  object-fit: cover;            /* 图片按比例裁剪填满圆形区域，不变形 */
+  border: 3px solid #ffffff;    /* 白色描边，让头像与卡片拉开层次 */
+}
+
+/* ---------- 5. 姓名与职位样式 ---------- */
+
+.name {
+  margin: 0 0 6px;              /* 与职位保持 6px 间距 */
+  font-size: 24px;              /* 姓名字号 */
+  font-weight: 700;             /* 加粗突出 */
+  text-align: center;           /* 居中 */
+  letter-spacing: 2px;          /* 字间距，显得更精致 */
+}
+
+/* 职位：弱化文字颜色，与姓名形成主次对比 */
+.position {
+  margin: 0 0 26px;             /* 与下方联系方式保持 26px 间距 */
+  font-size: 14px;
+  color: #7f8c9b;               /* 灰色，弱化视觉层级 */
+  text-align: center;
+}
+
+/* ---------- 6. 联系方式样式 ---------- */
+
+/* 去除列表默认的项目符号与缩进 */
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* 单条联系方式：flex 让图标与文字横向对齐 */
+.contact-item {
+  display: flex;                /* 弹性布局：图标 + 文字排成一行 */
+  align-items: center;          /* 垂直居中对齐 */
+  gap: 10px;                    /* 图标与文字间距 */
+  padding: 9px 0;               /* 竖向留白，让三项之间透气 */
+  color: #34495e;               /* 图标与文字统一颜色 */
+}
+
+/* 联系方式文字：保持单行不换行，过长时显示省略号 */
+.contact-text {
+  font-size: 14px;
+  min-width: 0;                 /* 允许 Flex 项目收缩，保证省略号在窄容器内生效 */
+  white-space: nowrap;          /* 禁止换行 */
+  overflow: hidden;             /* 超出部分隐藏 */
+  text-overflow: ellipsis;      /* 超出部分显示省略号 */
+}
+
+/* 分隔线：联系方式列表上方的细线，区分内容区块 */
+.contact-list::before {
+  content: "";
+  display: block;
+  height: 1px;
+  margin: 6px 0 12px;
+  background-color: #e6ebf0;    /* 浅灰分隔线 */
+}

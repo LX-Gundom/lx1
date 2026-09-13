@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <!-- 视口设置：让页面在手机 / 平板等不同屏幕上都能正常缩放显示 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- 页面标题：显示在浏览器标签栏 -->
+  <title>个人名片 | 张三</title>
+
+  <!--
+    ==================================================
+    引入外部 CSS 样式文件（HTML 结构与 CSS 样式分离书写）
+    ==================================================
+  -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ============ 名片卡片（居中卡片式布局） ============ -->
+  <main class="card">
+
+    <!-- 圆形头像：图片由同目录下的 avatar.svg 提供 -->
+    <img class="avatar" src="avatar.svg" alt="张三头像" />
+
+    <!-- 姓名：使用一级标题强调 -->
+    <h1 class="name">张三</h1>
+
+    <!-- 职位：姓名下方的副标题 -->
+    <p class="position">前端工程师 · 开源爱好者</p>
+
+    <!-- 联系方式：邮箱 / 电话 / 社交媒体 -->
+    <ul class="contact-list">
+
+      <!-- 邮箱 -->
+      <li class="contact-item">
+        <!-- 内联 SVG 邮箱图标：不依赖任何外部资源，离线也能显示 -->
+        <svg class="contact-icon" viewBox="0 0 24 24" width="18" height="18"
+             xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="2" y="4" width="14" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M2 6 h20 v2 M2 14 h20" stroke="currentColor" stroke-width="1.6" fill="none"/>
+        </svg>
+        <span class="contact-text">zhangsan@example.com</span>
+      </li>
+
+      <!-- 电话 -->
+      <li class="contact-item">
+        <svg class="contact-icon" viewBox="0 0 24 24" width="18" height="18"
+             xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M4 12 c-2 -8 -5 -9 4 0 8 -6 5 2" fill="none" stroke="currentColor" stroke-width="1.6"/>
+          <rect x="14" y="4" width="5" height="3" rx="1" fill="currentColor"/>
+          <rect x="14" y="11" width="2" height="8" rx="1" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        </svg>
+        <span class="contact-text">138-0000-0000</span>
+      </li>
+
+      <!-- 社交媒体（GitHub） -->
+      <li class="contact-item">
+        <svg class="contact-icon" viewBox="0 0 24 24" width="18" height="18"
+             xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="8" cy="12" r="6" fill="none" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="10" cy="12" r="2.2" fill="none" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M5 14 q2 4 -3 4" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        </svg>
+        <span class="contact-text">github.com/zhangsan</span>
+      </li>
+
+    </ul>
+
+  </main>
+
+</body>
+</html>
